@@ -1,0 +1,4 @@
+9HTTP POST on URL=http://127.0.0.1:8080/hue-notification
+body={"payload":"bonjour"}
+$Thanks for the notification bro :3
+Response code=200
