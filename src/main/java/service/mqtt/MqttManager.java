@@ -15,7 +15,11 @@ public class MqttManager {
         String mqttBrokerUri = "localhost:1883";
         String publisherId = UUID.randomUUID().toString();
 
-        publisher = new MqttClient(mqttBrokerUri, publisherId);
+        try{
+            publisher = new MqttClient(mqttBrokerUri, publisherId);
+        }catch (Exception e){
+            System.out.println("Error while instanciating MQTT client: " + e.getMessage());
+        }
     }
 
     public boolean subscribe(String[] topics) throws MqttException {

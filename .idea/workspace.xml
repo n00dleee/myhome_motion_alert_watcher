@@ -19,6 +19,31 @@
     <option name="delegatedBuild" value="true" />
     <option name="isMigrated" value="true" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="382">
+                    <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="48" />
+                    <folding>
+                      <element signature="n#!!block;n#state#0;n#!!block;n#18#0;n#!!top" />
+                      <element signature="n#!!block;n#swupdate#0;n#!!block;n#18#0;n#!!top" />
+                      <element signature="n#!!block;n#config#0;n#!!block;n#18#0;n#!!top" />
+                      <element signature="n#!!block;n#capabilities#0;n#!!block;n#18#0;n#!!top" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -27,19 +52,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HelloWorld.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/sensorDataParsing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pushNotification.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            <state relative-caret-position="227">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#subscribe#0;class#MqttManager#0" />
@@ -59,7 +75,17 @@
                 <element signature="method#connect#0;class#MqttManager#0" />
                 <element signature="method#disconnect#0;class#MqttManager#0" />
                 <element signature="method#sendMessage#0;class#MqttManager#0" />
+                <element signature="e#1994#1995#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/ddbdeb2951e6dd60443763e6555f3bd2903943fc/org.eclipse.paho.client.mqttv3-1.0.2-sources.jar!/org/eclipse/paho/client/mqttv3/MqttConnectOptions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="456" selection-start-line="456" selection-end-line="456" />
             </state>
           </provider>
         </entry>
@@ -67,12 +93,63 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/api/HueApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="159">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#get#0;class#HueApi#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="92" selection-start-line="92" selection-end-line="92" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#checkSensorState#0;class#Watcher#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/HueIndividualSensorData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="764">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/swupdate/SwUpdate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/capabilities/Capabilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -86,16 +163,30 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fge</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/test/java/HelloWorldTest.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/service/mqtt/mqtt/MqttManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/pushNotification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/HueIndividualSensorData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json" />
+        <option value="$PROJECT_DIR$/src/main/java/model/huesensordata/config/config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/huesensordata/state/state.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/huesensordata/capabilities/Capabilities.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/huesensordata/swupdate/SwUpdate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/huesensordata/HueIndividualSensorData.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/api/HueApi.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sensorDataParsing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java" />
       </list>
     </option>
   </component>
@@ -107,7 +198,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="1300" />
+    <option name="width" value="1294" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -115,6 +206,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,6 +253,15 @@
               <item name="motion.alert.watcher" type="b2602c69:ProjectViewProjectNode" />
               <item name="myhome_motion_alert_watcher" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="watcher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="motion.alert.watcher" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myhome_motion_alert_watcher" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -174,7 +275,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -184,6 +284,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -197,7 +302,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.pushNotification">
+  <component name="RunManager" selected="Gradle.sensorDataParsing">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HelloWorld" />
       <module name="motion.alert.watcher.main" />
@@ -245,8 +350,29 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="sensorDataParsing" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;sensorDataParsing&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.sensorDataParsing" />
         <item itemvalue="Gradle.pushNotification" />
         <item itemvalue="Gradle.HelloWorldTest" />
         <item itemvalue="Application.HelloWorld" />
@@ -254,21 +380,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="HelloWorldTest - 2019.09.05 at 19h 38m 18s.xml">
-      <configuration name="HelloWorldTest" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="HelloWorldTest - 2019.09.05 at 19h 38m 57s.xml">
-      <configuration name="HelloWorldTest" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="HelloWorldTest - 2019.09.05 at 19h 42m 53s.xml">
-      <configuration name="HelloWorldTest" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="pushNotification - 2019.09.05 at 23h 14m 01s.xml">
-      <configuration name="pushNotification" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="pushNotification - 2019.09.05 at 23h 14m 23s.xml">
-      <configuration name="pushNotification" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="pushNotification - 2019.09.05 at 23h 14m 47s.xml">
       <configuration name="pushNotification" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -277,6 +388,27 @@
     </history-entry>
     <history-entry file="pushNotification - 2019.09.05 at 23h 15m 43s.xml">
       <configuration name="pushNotification" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 36m 44s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 38m 51s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 39m 35s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 39m 50s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 41m 00s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 42m 19s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="sensorDataParsing - 2019.09.06 at 18h 44m 17s.xml">
+      <configuration name="sensorDataParsing" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -289,10 +421,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1300" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1294" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21209678" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.184765" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -310,17 +442,40 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.16176471" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.16129032" />
       <window_info anchor="right" id="Gradle" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21532258" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42341357" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32932165" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="ConsoleMavenPlugin" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.20678337" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.16129032" />
+      <window_info anchor="right" id="Gradle" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java</url>
-          <line>48</line>
+          <line>52</line>
           <properties class="service.mqtt.MqttManager" method="disconnect">
             <option name="EMULATED" value="true" />
           </properties>
@@ -338,20 +493,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/hue_api.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/hue_api.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/HelloWorld.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -359,29 +501,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/HueSensorDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/state/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/capabilities/Capabilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/swupdate/SwUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#subscribe#0;class#MqttManager#0" />
-            <element signature="method#subscribe#1;class#MqttManager#0" />
-            <element signature="method#connect#0;class#MqttManager#0" />
-            <element signature="method#disconnect#0;class#MqttManager#0" />
-            <element signature="method#sendMessage#0;class#MqttManager#0" />
+            <element signature="n#!!block;n#state#0;n#!!block;n#18#0;n#!!top" />
+            <element signature="n#!!block;n#swupdate#0;n#!!block;n#18#0;n#!!top" />
+            <element signature="n#!!block;n#config#0;n#!!block;n#18#0;n#!!top" />
+            <element signature="n#!!block;n#capabilities#0;n#!!block;n#18#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/api/HueApi.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/AllHueSensorsData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="34">
+          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/huesensordata/HueIndividualSensorData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#get#0;class#HueApi#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20171018/36ced462c97f0845b4a7b266a25cebe95d18baa3/json-20171018.jar!/org/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/b2da9f8444128651758719856de579eacff7f387/gson-2.8.2-sources.jar!/com/google/gson/Gson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="172" column="9" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/ddbdeb2951e6dd60443763e6555f3bd2903943fc/org.eclipse.paho.client.mqttv3-1.0.2-sources.jar!/org/eclipse/paho/client/mqttv3/MqttClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="134" column="11" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -391,6 +596,60 @@
           <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/api/HueApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/sensorDataParsing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#subscribe#0;class#MqttManager#0" />
+            <element signature="method#subscribe#1;class#MqttManager#0" />
+            <element signature="method#connect#0;class#MqttManager#0" />
+            <element signature="method#disconnect#0;class#MqttManager#0" />
+            <element signature="method#sendMessage#0;class#MqttManager#0" />
+            <element signature="e#1994#1995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/ddbdeb2951e6dd60443763e6555f3bd2903943fc/org.eclipse.paho.client.mqttv3-1.0.2-sources.jar!/org/eclipse/paho/client/mqttv3/MqttConnectOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="456" selection-start-line="456" selection-end-line="456" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#checkSensorState#0;class#Watcher#0" />
           </folding>
         </state>
       </provider>

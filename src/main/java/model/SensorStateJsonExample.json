@@ -1,0 +1,217 @@
+{
+  "1": {
+    "state": {
+      "daylight": true,
+      "lastupdated": "2019-09-06T05:55:00"
+    },
+    "config": {
+      "on": true,
+      "configured": true,
+      "sunriseoffset": 30,
+      "sunsetoffset": -30
+    },
+    "name": "Daylight",
+    "type": "Daylight",
+    "modelid": "PHDL00",
+    "manufacturername": "Philips",
+    "swversion": "1.0"
+  },
+  "17": {
+    "state": {
+      "temperature": 1918,
+      "lastupdated": "2019-09-06T15:54:47"
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2019-03-12T13:54:38"
+    },
+    "config": {
+      "on": true,
+      "battery": 100,
+      "reachable": true,
+      "alert": "none",
+      "ledindication": false,
+      "usertest": false,
+      "pending": []
+    },
+    "name": "Hue temperature sensor 1",
+    "type": "ZLLTemperature",
+    "modelid": "SML001",
+    "manufacturername": "Philips",
+    "productname": "Hue temperature sensor",
+    "swversion": "6.1.1.27575",
+    "uniqueid": "00:17:88:01:03:29:af:62-02-0402",
+    "capabilities": {
+      "certified": true,
+      "primary": false
+    }
+  },
+  "18": {
+    "state": {
+      "presence": false,
+      "lastupdated": "2019-09-06T15:29:58"
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2019-03-12T13:54:38"
+    },
+    "config": {
+      "on": true,
+      "battery": 100,
+      "reachable": true,
+      "alert": "none",
+      "ledindication": false,
+      "usertest": false,
+      "sensitivity": 1,
+      "sensitivitymax": 2,
+      "pending": []
+    },
+    "name": "capteur Entrée",
+    "type": "ZLLPresence",
+    "modelid": "SML001",
+    "manufacturername": "Philips",
+    "productname": "Hue motion sensor",
+    "swversion": "6.1.1.27575",
+    "uniqueid": "00:17:88:01:03:29:af:62-02-0406",
+    "capabilities": {
+      "certified": true,
+      "primary": true
+    }
+  },
+  "19": {
+    "state": {
+      "lightlevel": 13828,
+      "dark": true,
+      "daylight": false,
+      "lastupdated": "2019-09-06T15:53:02"
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2019-03-12T13:54:38"
+    },
+    "config": {
+      "on": true,
+      "battery": 100,
+      "reachable": true,
+      "alert": "none",
+      "tholddark": 16000,
+      "tholdoffset": 7000,
+      "ledindication": false,
+      "usertest": false,
+      "pending": []
+    },
+    "name": "Hue ambient light sensor 1",
+    "type": "ZLLLightLevel",
+    "modelid": "SML001",
+    "manufacturername": "Philips",
+    "productname": "Hue ambient light sensor",
+    "swversion": "6.1.1.27575",
+    "uniqueid": "00:17:88:01:03:29:af:62-02-0400",
+    "capabilities": {
+      "certified": true,
+      "primary": false
+    }
+  },
+  "21": {
+    "state": {
+      "flag": true,
+      "lastupdated": "2019-09-06T05:30:00"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "Réveil travail",
+    "type": "CLIPGenericFlag",
+    "modelid": "WAKEUP",
+    "manufacturername": "Philips",
+    "swversion": "1.0",
+    "uniqueid": "L_04_c4ByP",
+    "recycle": true
+  },
+  "22": {
+    "state": {
+      "presence": true,
+      "lastupdated": "2019-09-05T15:38:16"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "HomeAway",
+    "type": "CLIPPresence",
+    "modelid": "HOMEAWAY",
+    "manufacturername": "Philips",
+    "swversion": "1.0",
+    "uniqueid": "L_01_45Djc",
+    "recycle": false
+  },
+  "23": {
+    "state": {
+      "presence": true,
+      "lastupdated": "2019-09-06T13:05:13"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "iPhone X de nicolas",
+    "type": "Geofence",
+    "modelid": "HA_GEOFENCE",
+    "manufacturername": "Philips",
+    "swversion": "1.0",
+    "uniqueid": "L_02_KsTvg",
+    "recycle": false
+  },
+  "24": {
+    "state": {
+      "flag": false,
+      "lastupdated": "2019-09-01T21:18:00"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "Go to sleep",
+    "type": "CLIPGenericFlag",
+    "modelid": "GOTOSLEEP",
+    "manufacturername": "Philips",
+    "swversion": "A_1",
+    "uniqueid": "L_05_JhaC3",
+    "recycle": true
+  },
+  "25": {
+    "state": {
+      "flag": false,
+      "lastupdated": "2019-05-10T03:55:00"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "Réveil 1",
+    "type": "CLIPGenericFlag",
+    "modelid": "WAKEUP",
+    "manufacturername": "Philips",
+    "swversion": "1.0",
+    "uniqueid": "L_04_wO2RQ",
+    "recycle": true
+  },
+  "26": {
+    "state": {
+      "flag": false,
+      "lastupdated": "2019-09-06T07:00:00"
+    },
+    "config": {
+      "on": true,
+      "reachable": true
+    },
+    "name": "Réveil travail",
+    "type": "CLIPGenericFlag",
+    "modelid": "WAKEUP",
+    "manufacturername": "Philips",
+    "swversion": "1.0",
+    "uniqueid": "L_04_NcG1l",
+    "recycle": true
+  }
+}
