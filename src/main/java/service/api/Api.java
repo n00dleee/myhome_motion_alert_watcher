@@ -5,14 +5,14 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HueApi {
+public class Api {
     URL url;
     HttpURLConnection connection;
     final String notificationUrl = "http://127.0.0.1:8080/hue-notification";
 
     final String getSensorsUrl = "http://192.168.1.8/api/wPBddzjMrQtcIU1Z3NVRb9WbupKmXlht4S8HMMlI/sensors";
 
-    public HueApi() throws IOException {
+    public Api() throws IOException {
 
     }
 
