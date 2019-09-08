@@ -8,16 +8,13 @@ import service.api.Api;
 import service.mqtt.MqttManager;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Watcher {
     Api api;
     MqttManager mqttManager;
     List<Integer> listOfSensorsIdToWatch;
-    public Map<Integer, Boolean> alertMap;
+    public Map<Integer, Date> alertMap;
     public List<Thread> watcherThreadPool;
     private boolean state = false;
 
@@ -30,7 +27,7 @@ public class Watcher {
         watcherThreadPool = new ArrayList<>();
     }
 
-    public void addSensorToWatch(List<Integer> listOfId){
+    public void addSensorToWatch(List<Integer> listOfId) {
         listOfSensorsIdToWatch.addAll(listOfId);
     }
 
@@ -63,40 +60,45 @@ public class Watcher {
     public boolean stop() {
         state = false;
 
-
         return state;
     }
 
+    public Map<Integer, Date> getAlertMap() {
+        return alertMap;
+    }
 
-    public void SensorWatcherThreadLoop(Integer id) throws InterruptedException {
+    private void SensorWatcherThreadLoop(Integer id) throws InterruptedException {
         while (true) {
             try {
-                Map<Integer, Boolean> alertMap = checkSensorsState();
+                Map<Integer, Date> newAlertMap = checkSensorsState();
+
+                if (newAlertMap != null)
+                    alertMap.putAll(newAlertMap);
 
                 System.out.println("Alertmap size:" + alertMap.size());
                 if (alertMap.size() > 0) {
                     JSONObject json = new JSONObject();
 
-                    for (Map.Entry<Integer, Boolean> entry : alertMap.entrySet()) {
+                    for (Map.Entry<Integer, Date> entry : alertMap.entrySet()) {
                         json.put(entry.getKey().toString(), entry.getValue());
                     }
                     api.pushNotification(json.toString());
                 }
-                Thread.sleep((int) (2000));
+                Thread.sleep(2000);
             } catch (InterruptedException | IOException e) {
                 System.out.println("Thread loop crashed: " + e.getMessage());
             }
         }
     }
 
-    public Map<Integer, Boolean> checkSensorsState() throws IOException {
+    private Map<Integer, Date> checkSensorsState() throws IOException {
         try {
             //get sensors state
             String jsonString = api.getSensorsState();
             JSONObject jsonObject;
             JSONObject sensorJsonObject;
 
-            Map<Integer, Boolean> alertMap = new HashMap<>();
+            Map<Integer, Date> newAlertMap = new HashMap<>();
 
             for (Integer id : listOfSensorsIdToWatch) {
                 jsonObject = new JSONObject(jsonString);
@@ -108,14 +110,14 @@ public class Watcher {
                 HueIndividualSensorData sensorData = g.fromJson(sensorJsonObject.toString(), HueIndividualSensorData.class);
 
                 if (sensorData.state.presence) {
-                    alertMap.put(id, sensorData.state.presence);
+                    alertMap.put(id, new Date());
                 }
             }
-            return alertMap;
+            return newAlertMap;
         } catch (
                 Exception e) {
             System.out.println("Error while parsing sensor data:" + e.getMessage());
-            return alertMap;
+            return null;
         }
     }
 

@@ -41,27 +41,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/startWatcherThreadLoop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-              <folding>
-                <element signature="e#441#450#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+            <state relative-caret-position="279">
+              <caret line="113" column="17" lean-forward="true" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
               <folding>
-                <element signature="e#925#926#0" expanded="true" />
-                <element signature="e#962#963#0" expanded="true" />
-                <element signature="method#checkSensorsState#0;class#Watcher#0" />
+                <element signature="e#899#900#0" expanded="true" />
+                <element signature="e#1840#1841#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,7 +104,11 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -123,6 +123,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>while instanciat</find>
+      <find>alertmap</find>
+      <find>alertMap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,8 +134,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java" />
-        <option value="$PROJECT_DIR$/src/test/java/startWatcherThreadLoop.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java" />
+        <option value="$PROJECT_DIR$/src/test/java/startWatcherThreadLoop.java" />
       </list>
     </option>
   </component>
@@ -145,7 +147,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="1294" />
+    <option name="width" value="1626" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectId" id="1QWXhludgO4y1s7XM8enzn9XOv6" />
@@ -352,34 +354,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 41m 16s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 42m 16s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 43m 53s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 44m 54s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 44m 56s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 45m 59s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 47m 03s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 48m 07s.xml">
-      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 49m 57s.xml">
       <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
     </history-entry>
     <history-entry file="startWatcherThreadLoop - 2019.09.08 at 18h 55m 29s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 00m 15s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 01m 01s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 01m 13s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 08m 17s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 13m 49s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 20m 27s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 21m 18s.xml">
+      <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="startWatcherThreadLoop - 2019.09.08 at 19h 22m 33s.xml">
       <configuration name="startWatcherThreadLoop" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
@@ -393,20 +395,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1294" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1626" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25121555" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19795658" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5437637" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.58862144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32932165" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="ConsoleMavenPlugin" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -466,6 +468,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sensorDataParsing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -473,20 +489,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/SensorStateJsonExample.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/ddbdeb2951e6dd60443763e6555f3bd2903943fc/org.eclipse.paho.client.mqttv3-1.0.2-sources.jar!/org/eclipse/paho/client/mqttv3/MqttClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -500,25 +506,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/startWatcherThreadLoop.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/mqtt/MqttManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding>
-            <element signature="e#441#450#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/watcher/Watcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+        <state relative-caret-position="279">
+          <caret line="113" column="17" lean-forward="true" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
           <folding>
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="method#checkSensorsState#0;class#Watcher#0" />
+            <element signature="e#899#900#0" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/startWatcherThreadLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
     </entry>
