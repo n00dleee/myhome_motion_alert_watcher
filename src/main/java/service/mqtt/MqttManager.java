@@ -12,13 +12,14 @@ public class MqttManager {
 
 
     public MqttManager() throws MqttException {
-        String mqttBrokerUri = "localhost:1883";
+        String mqttBrokerUri = "tcp://127.0.0.1:1883";
         String publisherId = UUID.randomUUID().toString();
 
         try{
+            System.out.println("Trying to instanciate MQTT client with uri= " + mqttBrokerUri + " and publisher id=" + publisherId);
             publisher = new MqttClient(mqttBrokerUri, publisherId);
         }catch (Exception e){
-            System.out.println("Error while instanciating MQTT client: " + e.getMessage());
+            System.out.println("Error while instanciating MQTT client: " + e);
         }
     }
 

@@ -30,17 +30,32 @@ public class Watcher {
         watcherThreadPool = new ArrayList<>();
     }
 
+    public void addSensorToWatch(List<Integer> listOfId){
+        listOfSensorsIdToWatch.addAll(listOfId);
+    }
+
     public boolean start() {
         state = true;
-        for(Integer id: listOfSensorsIdToWatch){
+
+        System.out.println("In watcher.start() method...");
+
+        //creating threads
+        for (Integer id : listOfSensorsIdToWatch) {
             watcherThreadPool.add(new Thread(() -> {
                 try {
                     SensorWatcherThreadLoop(id);
                 } catch (InterruptedException e) {
                     System.out.println("Sensor alert watcher for Id=" + id + " terminated");
                 }
-            }));
+            }, "Watcher for sensor id -> " + id.toString()));
         }
+
+        //starting thread
+        for (Thread thread : watcherThreadPool) {
+            System.out.println("Starting watcher thread for id=" + thread.getName());
+            thread.start();
+        }
+
 
         return state;
     }
@@ -54,16 +69,16 @@ public class Watcher {
 
 
     public void SensorWatcherThreadLoop(Integer id) throws InterruptedException {
-        while(true){
+        while (true) {
             try {
                 Map<Integer, Boolean> alertMap = checkSensorsState();
 
                 System.out.println("Alertmap size:" + alertMap.size());
-                if(alertMap.size() > 0){
+                if (alertMap.size() > 0) {
                     JSONObject json = new JSONObject();
 
-                    for(Map.Entry<Integer, Boolean> entry: alertMap.entrySet()){
-                        json.put( entry.getKey().toString(), entry.getValue());
+                    for (Map.Entry<Integer, Boolean> entry : alertMap.entrySet()) {
+                        json.put(entry.getKey().toString(), entry.getValue());
                     }
                     api.pushNotification(json.toString());
                 }
@@ -92,7 +107,7 @@ public class Watcher {
                 Gson g = new Gson();
                 HueIndividualSensorData sensorData = g.fromJson(sensorJsonObject.toString(), HueIndividualSensorData.class);
 
-                if(sensorData.state.presence){
+                if (sensorData.state.presence) {
                     alertMap.put(id, sensorData.state.presence);
                 }
             }
