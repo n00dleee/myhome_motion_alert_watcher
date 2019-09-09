@@ -1,6 +1,7 @@
 package service.watcher;
 
 import com.google.gson.Gson;
+import model.alertdatabaseobject.AlertDataBaseObject;
 import model.huesensordata.HueIndividualSensorData;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.json.JSONObject;
@@ -8,22 +9,23 @@ import service.api.Api;
 import service.mqtt.MqttManager;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Watcher {
     Api api;
     MqttManager mqttManager;
     List<Integer> listOfSensorsIdToWatch;
-    public Map<Integer, Date> alertMap;
     public List<Thread> watcherThreadPool;
     private boolean state = false;
 
-    public Watcher() throws IOException, MqttException {
+    public Watcher(MqttManager mqttManager) throws IOException, MqttException {
         listOfSensorsIdToWatch = new ArrayList<>();
         api = new Api();
-        mqttManager = new MqttManager();
+        this.mqttManager = mqttManager;
 
-        alertMap = new HashMap<>();
         watcherThreadPool = new ArrayList<>();
     }
 
@@ -31,10 +33,12 @@ public class Watcher {
         listOfSensorsIdToWatch.addAll(listOfId);
     }
 
+    public void addSensorToWatch(Integer id) {
+        listOfSensorsIdToWatch.add(id);
+    }
+
     public boolean start() {
         state = true;
-
-        System.out.println("In watcher.start() method...");
 
         //creating threads
         for (Integer id : listOfSensorsIdToWatch) {
@@ -52,8 +56,6 @@ public class Watcher {
             System.out.println("Starting watcher thread for id=" + thread.getName());
             thread.start();
         }
-
-
         return state;
     }
 
@@ -63,54 +65,69 @@ public class Watcher {
         return state;
     }
 
-    public Map<Integer, Date> getAlertMap() {
-        return alertMap;
-    }
-
     private void SensorWatcherThreadLoop(Integer id) throws InterruptedException {
         while (true) {
             try {
-                Map<Integer, Date> newAlertMap = checkSensorsState();
 
-                if (newAlertMap != null)
-                    alertMap.putAll(newAlertMap);
+                LinkedList<AlertDataBaseObject> newAlertMap = checkSensorsState();
 
-                System.out.println("Alertmap size:" + alertMap.size());
-                if (alertMap.size() > 0) {
-                    JSONObject json = new JSONObject();
+                if (newAlertMap != null && newAlertMap.size() > 0) {
+                    System.out.println("Alertmap size:" + newAlertMap.size());
 
-                    for (Map.Entry<Integer, Date> entry : alertMap.entrySet()) {
-                        json.put(entry.getKey().toString(), entry.getValue());
+                    Gson gson = new Gson();
+                    List<String> linkedListAlertString = new ArrayList<>();
+                    String temp;
+
+                    for (int i = 0; i < newAlertMap.size(); i++) {
+                        temp = gson.toJson(newAlertMap.get(0));
+                        System.out.println("Putting alert in LinkedList:" + temp);
+                        linkedListAlertString.add(temp);
                     }
-                    api.pushNotification(json.toString());
+
+                    String jsonString = new Gson().toJson(linkedListAlertString);
+
+                    notifyAlert(jsonString);
                 }
+
                 Thread.sleep(2000);
             } catch (InterruptedException | IOException e) {
                 System.out.println("Thread loop crashed: " + e.getMessage());
+            } catch (MqttException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    private Map<Integer, Date> checkSensorsState() throws IOException {
+    private void notifyAlert(String jsonString) throws MqttException {
+        mqttManager.publish(jsonString, "alert.motion.set.inbound");
+    }
+
+    private LinkedList<AlertDataBaseObject> checkSensorsState() throws IOException {
         try {
             //get sensors state
             String jsonString = api.getSensorsState();
             JSONObject jsonObject;
             JSONObject sensorJsonObject;
 
-            Map<Integer, Date> newAlertMap = new HashMap<>();
+            LinkedList<AlertDataBaseObject> newAlertMap = new LinkedList<>();
 
             for (Integer id : listOfSensorsIdToWatch) {
                 jsonObject = new JSONObject(jsonString);
                 sensorJsonObject = jsonObject.getJSONObject(id.toString());
 
-                System.out.println("Sensor data string retrieved for id=" + id.toString() + "\r\n" + sensorJsonObject.toString());
-
                 Gson g = new Gson();
                 HueIndividualSensorData sensorData = g.fromJson(sensorJsonObject.toString(), HueIndividualSensorData.class);
 
                 if (sensorData.state.presence) {
-                    alertMap.put(id, new Date());
+                    newAlertMap.addLast(new AlertDataBaseObject(
+                            id,
+                            sensorData.name,
+                            sensorData.productname,
+                            sensorData.manufacturername,
+                            new Date(),
+                            "presence",
+                            sensorData.state.presence
+                    ));
                 }
             }
             return newAlertMap;

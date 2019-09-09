@@ -32,10 +32,9 @@ public class Api {
             while ((responseLine = br.readLine()) != null) {
                 response.append(responseLine.trim());
             }
-            System.out.println(response.toString());
+//            System.out.println(response.toString());
 
             int responseCode = connection.getResponseCode();
-            System.out.println("Response code=" + responseCode);
         } catch (IOException e) {
             return "error: " + e.getMessage();
         }
@@ -84,7 +83,6 @@ public class Api {
 
     public String getSensorsState() throws IOException {
         String json = get(getSensorsUrl);
-        System.out.println("SENSORS=" + json);
         return json;
     }
 

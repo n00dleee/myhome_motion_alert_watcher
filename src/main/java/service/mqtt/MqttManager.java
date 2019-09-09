@@ -8,22 +8,23 @@ import java.util.UUID;
 public class MqttManager {
     private IMqttClient publisher;
 
-    String[] topicToSubcribe = {"service.setState"};
+    String[] topicToSubcribe = {"service.setState", "service.getState"};
+    String mqttBrokerUrl = "tcp://127.0.0.1:1883";
 
-
-    public MqttManager() throws MqttException {
-        String mqttBrokerUri = "tcp://127.0.0.1:1883";
+    public MqttManager() {
         String publisherId = UUID.randomUUID().toString();
 
         try{
-            System.out.println("Trying to instanciate MQTT client with uri= " + mqttBrokerUri + " and publisher id=" + publisherId);
-            publisher = new MqttClient(mqttBrokerUri, publisherId);
+            System.out.println("Trying to instanciate MQTT client with uri= " + mqttBrokerUrl + " and publisher id=" + publisherId);
+            publisher = new MqttClient(mqttBrokerUrl, publisherId);
+            publisher.connect();
+            subscribe(topicToSubcribe);
         }catch (Exception e){
             System.out.println("Error while instanciating MQTT client: " + e);
         }
     }
 
-    public boolean subscribe(String[] topics) throws MqttException {
+    public boolean subscribe(String[] topics) {
         try {
             publisher.subscribe(topics);
             return true;
@@ -32,23 +33,13 @@ public class MqttManager {
         }
     }
 
-    public boolean subscribe(String topic) throws MqttException {
-        try {
-            publisher.subscribe(topic);
-            return true;
-        } catch (MqttException e) {
-            return false;
-        }
-    }
-
     public boolean connect() throws MqttException {
         MqttConnectOptions options = new MqttConnectOptions();
-//        options.setAutomaticReconnect(true);
         options.setCleanSession(true);
         options.setConnectionTimeout(10);
         publisher.connect(options);
 
-        return false;
+        return publisher.isConnected();
     }
 
     public boolean disconnect() throws MqttException {
@@ -60,7 +51,8 @@ public class MqttManager {
         }
     }
 
-    public boolean sendMessage(String message, String topic) throws MqttException {
+    public boolean publish(String message, String topic) throws MqttException {
+        System.out.println("Publishing message with content=" + message + "\r\non topic=" + topic);
         try{
             publisher.publish(topic, buildMqttMessage(message));
             return true;
