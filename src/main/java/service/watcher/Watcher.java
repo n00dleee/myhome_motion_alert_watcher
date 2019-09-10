@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import model.alertdatabaseobject.AlertDataBaseObject;
 import model.huesensordata.HueIndividualSensorData;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import service.api.Api;
 import service.mqtt.MqttManager;
@@ -74,17 +75,14 @@ public class Watcher {
                 if (newAlertMap != null && newAlertMap.size() > 0) {
                     System.out.println("Alertmap size:" + newAlertMap.size());
 
-                    Gson gson = new Gson();
-                    List<String> linkedListAlertString = new ArrayList<>();
-                    String temp;
+                    JSONArray jsonArray = new JSONArray();
 
                     for (int i = 0; i < newAlertMap.size(); i++) {
-                        temp = gson.toJson(newAlertMap.get(0));
-                        System.out.println("Putting alert in LinkedList:" + temp);
-                        linkedListAlertString.add(temp);
+                        System.out.println("Putting alert in JSONARRAY:" + newAlertMap.get(i).toString());
+                        jsonArray.put(newAlertMap.get(i));
                     }
 
-                    String jsonString = new Gson().toJson(linkedListAlertString);
+                    String jsonString = new Gson().toJson(jsonArray);
 
                     notifyAlert(jsonString);
                 }
