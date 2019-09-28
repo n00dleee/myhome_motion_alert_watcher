@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="motion_alert_watcher.main:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/motion_alert_watcher_main_jar</output-path>
+    <root id="archive" name="motion.alert.watcher.main.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="motion.alert.watcher.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/asm/1.0.2/49f3068a4591b4aa6af553905ff2145685a21c2c/asm-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.10/5b338f206827d88acd890739f400a9b7664e5984/slf4j-api-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/e1c9a81aadf25b884c779298a90750d0ab8013a5/org.eclipse.paho.client.mqttv3-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.1.1/922d12fb1f394e2b6999ae0f7936ab13f4dffb81/json-smart-2.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.0.0/26b8555596b3fb9652c1ffe193fa9123945b32cc/json-path-2.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android/support-v4/r7/24d0f6da34c3a2bfcf736ab42d51c91ac821ee22/support-v4-r7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/asm/asm/3.3.1/1d5f20b4ea675e6fab6ab79f1cd60ec268ddc015/asm-3.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.android.service/1.0.2/2d956522c556caeb35148445ecd059ebe67331f6/org.eclipse.paho.android.service-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.json/json/20171018/36ced462c97f0845b4a7b266a25cebe95d18baa3/json-20171018.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
