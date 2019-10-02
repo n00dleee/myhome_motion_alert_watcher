@@ -22,12 +22,26 @@ public class Watcher {
     public List<Thread> watcherThreadPool;
     private boolean state = false;
 
-    public Watcher(MqttManager mqttManager) throws IOException, MqttException {
+    private Watcher() throws IOException, MqttException {
         listOfSensorsIdToWatch = new ArrayList<>();
         api = new Api();
-        this.mqttManager = mqttManager;
-
         watcherThreadPool = new ArrayList<>();
+    }
+
+    private static Watcher INSTANCE;
+
+    static {
+        try {
+            INSTANCE = new Watcher();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Watcher getInstance() {
+        return INSTANCE;
     }
 
     public void addSensorToWatch(List<Integer> listOfId) {
@@ -41,27 +55,50 @@ public class Watcher {
     public boolean start() {
         state = true;
 
-        //creating threads
-        for (Integer id : listOfSensorsIdToWatch) {
-            watcherThreadPool.add(new Thread(() -> {
-                try {
-                    SensorWatcherThreadLoop(id);
-                } catch (InterruptedException e) {
-                    System.out.println("Sensor alert watcher for Id=" + id + " terminated");
-                }
-            }, "Watcher for sensor id -> " + id.toString()));
+        System.out.println("Starting watcher ...");
+
+
+        try{
+            //creating threads
+            for (Integer id : listOfSensorsIdToWatch) {
+                watcherThreadPool.add(new Thread(() -> {
+                    try {
+                        SensorWatcherThreadLoop(id);
+                    } catch (InterruptedException e) {
+                        System.out.println("Sensor alert watcher for Id=" + id + " terminated");
+                    }
+                }, "Watcher for sensor id -> " + id.toString()));
+            }
+
+            //starting thread
+            for (Thread thread : watcherThreadPool) {
+                System.out.println("Starting thread " + thread.getName());
+                thread.start();
+            }
+        }
+        catch (Exception e){
+            System.out.println("Exception while starting watcher threads " + e);
         }
 
-        //starting thread
-        for (Thread thread : watcherThreadPool) {
-            System.out.println("Starting watcher thread for id=" + thread.getName());
-            thread.start();
-        }
         return state;
     }
 
     public boolean stop() {
+        System.out.println("Stopping watcher ...");
         state = false;
+
+        for (Thread thread : watcherThreadPool) {
+            System.out.println("Stopping watcher thread " + thread.getName());
+
+            try {
+                thread.interrupt();
+            } catch (Exception e) {
+                System.out.println("Exception while trying to stop " + thread.getName());
+            }
+
+        }
+
+        watcherThreadPool.clear();
 
         return state;
     }
@@ -88,16 +125,26 @@ public class Watcher {
                 }
 
                 Thread.sleep(2000);
-            } catch (InterruptedException | IOException e) {
-                System.out.println("Thread loop crashed: " + e.getMessage());
-            } catch (MqttException e) {
+            }
+//            catch (InterruptedException | IOException e) {
+//                System.out.println("Thread loop crashed: " + e.getMessage());
+//            }
+            catch (MqttException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
     private void notifyAlert(String jsonString) throws MqttException {
-        mqttManager.publish(jsonString, "alert.motion.set.inbound");
+        mqttManager = MqttManager.getInstance();
+
+        try {
+            mqttManager.publish(jsonString, "alert.motion.set.inbound");
+        } catch (Exception e) {
+            System.out.println("Exception while trying to publish notification event: " + e);
+        }
     }
 
     private LinkedList<AlertDataBaseObject> checkSensorsState() throws IOException {

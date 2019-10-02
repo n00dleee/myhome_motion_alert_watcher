@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, MqttException {
-        MqttManager mqttManager = new MqttManager();
-        Watcher watcher = new Watcher(mqttManager);
+        MqttManager mqttManager = MqttManager.getInstance();
+        Watcher watcher = Watcher.getInstance();
+
         watcher.addSensorToWatch(18);
-        watcher.start();
     }
 }
