@@ -57,7 +57,6 @@ public class Watcher {
 
         System.out.println("Starting watcher ...");
 
-
         try{
             //creating threads
             for (Integer id : listOfSensorsIdToWatch) {
