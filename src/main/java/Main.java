@@ -1,14 +1,7 @@
-import org.eclipse.paho.client.mqttv3.MqttException;
-import service.mqtt.MqttManager;
-import service.watcher.Watcher;
-
-import java.io.IOException;
+import service.Controler;
 
 public class Main {
-    public static void main(String[] args) throws IOException, MqttException {
-        MqttManager mqttManager = MqttManager.getInstance();
-        Watcher watcher = Watcher.getInstance();
-
-        watcher.addSensorToWatch(18);
+    public static void main(String[] args) throws Exception {
+        Controler controler = new Controler();
     }
 }

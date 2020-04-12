@@ -1,13 +1,10 @@
-package service.watcher;
+package service;
 
 import com.google.gson.Gson;
 import model.alertdatabaseobject.AlertDataBaseObject;
 import model.huesensordata.HueIndividualSensorData;
-import org.eclipse.paho.client.mqttv3.MqttException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import service.api.Api;
-import service.mqtt.MqttManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,32 +13,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Watcher {
-    Api api;
-    MqttManager mqttManager;
-    List<Integer> listOfSensorsIdToWatch;
-    public List<Thread> watcherThreadPool;
+    private NatsManager natsManager;
+    private List<Integer> listOfSensorsIdToWatch;
+    private List<Thread> watcherThreadPool;
     private boolean state = false;
 
-    private Watcher() throws IOException, MqttException {
-        listOfSensorsIdToWatch = new ArrayList<>();
-        api = new Api();
-        watcherThreadPool = new ArrayList<>();
-    }
-
-    private static Watcher INSTANCE;
-
-    static {
-        try {
-            INSTANCE = new Watcher();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Watcher getInstance() {
-        return INSTANCE;
+    public Watcher(NatsManager natsManager) {
+        this.natsManager = natsManager;
+        this.listOfSensorsIdToWatch = new ArrayList<>();
+        this.watcherThreadPool = new ArrayList<>();
     }
 
     public void addSensorToWatch(List<Integer> listOfId) {
@@ -50,6 +30,18 @@ public class Watcher {
 
     public void addSensorToWatch(Integer id) {
         listOfSensorsIdToWatch.add(id);
+
+        System.out.println("list of ids looks like this: " + listOfSensorsIdToWatch);
+
+        if (listOfSensorsIdToWatch.size() == 1)
+            this.start();
+    }
+
+    public void removeSensorToWatch(Integer id) {
+        listOfSensorsIdToWatch.remove(id);
+
+        if (listOfSensorsIdToWatch.size() == 0)
+            this.stop();
     }
 
     public boolean start() {
@@ -57,7 +49,7 @@ public class Watcher {
 
         System.out.println("Starting watcher ...");
 
-        try{
+        try {
             //creating threads
             for (Integer id : listOfSensorsIdToWatch) {
                 watcherThreadPool.add(new Thread(() -> {
@@ -74,8 +66,7 @@ public class Watcher {
                 System.out.println("Starting thread " + thread.getName());
                 thread.start();
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exception while starting watcher threads " + e);
         }
 
@@ -113,9 +104,9 @@ public class Watcher {
 
                     JSONArray jsonArray = new JSONArray();
 
-                    for (int i = 0; i < newAlertMap.size(); i++) {
-                        System.out.println("Putting alert in JSONARRAY:" + newAlertMap.get(i).toString());
-                        jsonArray.put(newAlertMap.get(i));
+                    for (AlertDataBaseObject alertDataBaseObject : newAlertMap) {
+                        System.out.println("Putting alert in JSONARRAY:" + alertDataBaseObject.toString());
+                        jsonArray.put(alertDataBaseObject);
                     }
 
                     String jsonString = new Gson().toJson(jsonArray);
@@ -125,22 +116,15 @@ public class Watcher {
 
                 Thread.sleep(2000);
             }
-//            catch (InterruptedException | IOException e) {
-//                System.out.println("Thread loop crashed: " + e.getMessage());
-//            }
-            catch (MqttException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            catch ( IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void notifyAlert(String jsonString) throws MqttException {
-        mqttManager = MqttManager.getInstance();
-
+    private void notifyAlert(String jsonString) {
         try {
-            mqttManager.publish(jsonString, "alert.motion.set.inbound");
+            natsManager.publish("hue.motion.alert.new", jsonString);
         } catch (Exception e) {
             System.out.println("Exception while trying to publish notification event: " + e);
         }
@@ -149,7 +133,7 @@ public class Watcher {
     private LinkedList<AlertDataBaseObject> checkSensorsState() throws IOException {
         try {
             //get sensors state
-            String jsonString = api.getSensorsState();
+            String jsonString = natsManager.publishRequestAndWaitForResponse("hue.sensor.get.all", "");
             JSONObject jsonObject;
             JSONObject sensorJsonObject;
 
@@ -185,7 +169,7 @@ public class Watcher {
     public boolean checkSensorState(Integer id) throws IOException {
         try {
             //get sensors state
-            String jsonString = api.getSensorsState();
+            String jsonString = natsManager.publishRequestAndWaitForResponse("hue.sensor.get.all", "");
             JSONObject jsonObject;
             JSONObject sensorJsonObject;
             String name;

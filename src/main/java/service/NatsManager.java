@@ -1,4 +1,4 @@
-package service.nats;
+package service;
 
 import io.nats.client.*;
 
@@ -16,13 +16,15 @@ public abstract class NatsManager {
     Map<String, Dispatcher> dispatcherMap;
 
     public NatsManager() throws Exception {
+        System.out.println("NATS manager intialization...");
         o = buildOptions();
         nc = Nats.connect("nats://" + System.getenv("NATS_BROKER_URL") + ":" + System.getenv("NATS_BROKER_PORT"));
         dispatcherMap = new HashMap<>();
 
         if(nc.getStatus() != Connection.Status.CONNECTED){
             throw new Exception("Error while connecting to nats broker. Broker status: " + nc.getStatus().toString());
-        }
+        }else
+            System.out.println("NATS successfully connected !");
     }
 
     public Options buildOptions() {
@@ -30,6 +32,7 @@ public abstract class NatsManager {
     }
 
     public boolean publish(String topic, String msg) {
+        System.out.println("Publishing to topic: " + topic);
         try {
             nc.publish(topic, msg.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
@@ -39,6 +42,7 @@ public abstract class NatsManager {
     }
 
     public boolean publishWithReplyTo(String topic, String topicToReplyTo, String msg) {
+        System.out.println("Publishing with 'reply to' on topic: " + topic);
         try {
             nc.publish(topic, topicToReplyTo, msg.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
@@ -48,12 +52,14 @@ public abstract class NatsManager {
     }
 
     public String publishRequestAndWaitForResponse(String topic, String msg) throws InterruptedException, ExecutionException, TimeoutException {
+        System.out.println("Publishing request on topic: " + topic);
         Future<Message> incoming = nc.request(topic, msg.getBytes(StandardCharsets.UTF_8));
-        Message rsp = incoming.get(2000, TimeUnit.MILLISECONDS);
+        Message rsp = incoming.get(5000, TimeUnit.MILLISECONDS);
         return new String(rsp.getData(), StandardCharsets.UTF_8);
     }
 
     public boolean asyncSubscribe(String topic) {
+        System.out.println("AsyncSubscribing to topic: " + topic);
         if (!dispatcherMap.containsKey(topic)) {
             try {
                 Dispatcher d = nc.createDispatcher(this::handleIncomingMessage);

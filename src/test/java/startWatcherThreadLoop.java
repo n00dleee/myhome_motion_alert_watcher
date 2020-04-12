@@ -1,23 +1,29 @@
+import io.nats.client.Message;
+import org.junit.Assert;
 import org.junit.Test;
-import service.mqtt.MqttManager;
-import service.watcher.Watcher;
-
-import java.util.ArrayList;
+import service.Controler;
+import service.NatsManager;
 
 public class startWatcherThreadLoop {
     @Test
     public void startWatcherThreadLoop() throws Exception {
-        System.out.println("TEST-instanciating watcher");
-        Watcher watcher = new Watcher(new MqttManager());
+        final Integer[] nbDetections = {0};
+        Controler controler = new Controler();
+        NatsManager natsManager = new NatsManager() {
+            @Override
+            public void handleIncomingMessage(Message msg) {
+                System.out.println("TEST NATS MNGR: receiving incoming msg: " + new String(msg.getData()));
+                nbDetections[0]++;
+            }
+        };
 
-        System.out.println("TEST-adding watching id=18 to list");
-        ArrayList<Integer> sensorsToWatch = new ArrayList<>();
-        sensorsToWatch.add(18);
-        watcher.addSensorToWatch(sensorsToWatch);
+        natsManager.asyncSubscribe("hue.motion.alert.new");
 
-        System.out.println("TEST-starting watcher");
-        watcher.start();
+        natsManager.publish("alert.motion.watcher.set", "{\"id\":\"18\", \"state\":\"true\"}");
 
-        Thread.sleep(60000);
+        Thread.sleep(20000);
+
+        System.out.println("Number of detections: " + nbDetections[0]);
+        Assert.assertTrue(nbDetections[0] > 0);
     }
 }
