@@ -23,4 +23,5 @@
 hs_err_pid*
 
 *.lock
-*.bin   
+*.bin
+.idea/workspace.xml
