@@ -17,11 +17,11 @@ public class startWatcherThreadLoop {
             }
         };
 
-        natsManager.asyncSubscribe("hue.motion.alert.new");
+        natsManager.asyncSubscribe("hue.alert.motion.new");
 
         natsManager.publish("alert.motion.watcher.set", "{\"id\":\"18\", \"state\":\"true\"}");
 
-        Thread.sleep(20000);
+        Thread.sleep(60000);
 
         System.out.println("Number of detections: " + nbDetections[0]);
         Assert.assertTrue(nbDetections[0] > 0);

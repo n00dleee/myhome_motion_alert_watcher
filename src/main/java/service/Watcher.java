@@ -124,7 +124,7 @@ public class Watcher {
 
     private void notifyAlert(String jsonString) {
         try {
-            natsManager.publish("hue.motion.alert.new", jsonString);
+            natsManager.publish("hue.alert.motion.new", jsonString);
         } catch (Exception e) {
             System.out.println("Exception while trying to publish notification event: " + e);
         }
